@@ -1,0 +1,60 @@
+{
+  "title": "直管の解析解検算（仮想条件）",
+  "schema_version": 1,
+  "fluid": {
+    "name": "仮想油",
+    "temperature_c": 40,
+    "density_kg_m3": 850,
+    "viscosity_cst": 32
+  },
+  "mode": "auto",
+  "nodes": [
+    {
+      "id": "IN",
+      "kind": "flow",
+      "x": 0,
+      "y": 0,
+      "elevation_m": 0.0,
+      "flow_lpm": 20,
+      "pressure_kpa": 0.0,
+      "boundary_diameter_mm": 25
+    },
+    {
+      "id": "OUT",
+      "kind": "pressure",
+      "x": 600,
+      "y": 0,
+      "elevation_m": 0.0,
+      "flow_lpm": 0.0,
+      "pressure_kpa": 0.0,
+      "boundary_diameter_mm": 25
+    }
+  ],
+  "elements": [
+    {
+      "id": "P1",
+      "start": "IN",
+      "end": "OUT",
+      "kind": "pipe",
+      "diameter_mm": 25,
+      "outlet_diameter_mm": 25,
+      "length_m": 10,
+      "roughness_mm": 0.045,
+      "k": null,
+      "reference_diameter_mm": 25.0,
+      "source": "",
+      "re_min": 0.0,
+      "re_max": 1000000000000.0,
+      "allow_estimate": false,
+      "fixed_flow_lpm": 20,
+      "filter_mode": "curve",
+      "curve": [],
+      "fixed_dp_kpa": 10.0,
+      "fixed_at_lpm": 10.0,
+      "curve_viscosity_cst": 32.0,
+      "bypass_kpa": 0.0
+    }
+  ],
+  "tees": [],
+  "notes": "仮想物性・仮想寸法。層流直管をHagen–Poiseuille式で検算する例。出口は管断面のゲージ圧0 kPa。"
+}
